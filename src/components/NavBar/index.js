@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-export default function PersistentDrawerRight() {
+function NavBar() {
   const classes = useStyles();
 
   return (
@@ -19,3 +19,4 @@ export default function PersistentDrawerRight() {
     </div>
   );
 }
+export default NavBar;
