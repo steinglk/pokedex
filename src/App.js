@@ -3,12 +3,14 @@ import {useLocalStorage} from 'react-use';
 import NavBar from './components/NavBar'
 import CustomCard from './components/CustomCard'
 import SearchItem from './components/SearchItem'
+import CustomAlert from './components/CustomAlert'
 import './App.css';
 
 function App() {
   const [cacheSearch, setCacheSearch, removeCacheSearch] = useLocalStorage('pokemonSearch', []);
   const [pokemon, setPokemon] = useState({});
   const [searchPokemon, setSearchPokemon] = useState('');
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     handleRequestToAPI();
@@ -18,8 +20,18 @@ function App() {
     saveInCache();
   }, [pokemon]);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setOpen(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+    }
+  },[open]);
+
   function checkInCache() {
-    return cacheSearch.find(item => item.name === searchPokemon);
+    return cacheSearch.find(item => item.name === searchPokemon.toLocaleLowerCase);
   }
 
   function saveInCache() {
@@ -49,6 +61,7 @@ function App() {
       setPokemon(currentPokemon);
     } catch (error) {
       console.log(error);
+      setOpen(true);
     }
 
   }
@@ -65,6 +78,7 @@ function App() {
         setSearchPokemon={setSearchPokemon} 
         handleFindPokemon={handleFindPokemon}/>
       </div>
+      {open && <CustomAlert />}
     </div>
   );
 }
