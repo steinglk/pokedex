@@ -12,7 +12,7 @@ function NavBar() {
       <AppBar position="fixed">
         <Toolbar  className={classes.toolbar}>
           <Typography variant="h6" noWrap className={classes.title}>
-            Pokédex
+            Pokédex dos Guri
           </Typography>
         </Toolbar>
       </AppBar>

@@ -11,7 +11,7 @@ function CustomCard({name, abilities, image}) {
   
   return (
     <Card className={classes.root}>
-      <CardHeader title={name} className={classes.cardHeader}/>
+      <CardHeader title={`Bah é o ${name}`} className={classes.cardHeader}/>
       <CardMedia
         component="img"
         className={classes.media}
@@ -20,7 +20,7 @@ function CustomCard({name, abilities, image}) {
       />
       <CardContent>
         <Typography variant="h6" >
-          Habilidades
+          Habilidoso o pia
         </Typography>
         {abilities && abilities.map(item => (
           <Typography variant='body2' key={item.ability.name} color='textSecondary' component='p'>
