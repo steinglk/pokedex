@@ -9,8 +9,8 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={classes.toolbar}>
-        <Toolbar>
+      <AppBar position="fixed">
+        <Toolbar  className={classes.toolbar}>
           <Typography variant="h6" noWrap className={classes.title}>
             Pokédex
           </Typography>

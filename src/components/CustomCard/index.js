@@ -6,27 +6,27 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-function CustomCard() {
+function CustomCard({name, abilities, image}) {
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
   
-    const handleExpandClick = () => {
-      setExpanded(!expanded);
-    };
-
   return (
     <Card className={classes.root}>
-      <CardHeader title="Pikachu" className={classes.cardHeader}/>
+      <CardHeader title={name} className={classes.cardHeader}/>
       <CardMedia
         component="img"
         className={classes.media}
-        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png"
-        title="Pikachu"
+        image={image}
+        title={name}
       />
       <CardContent>
         <Typography variant="h6" >
           Habilidades
         </Typography>
+        {abilities && abilities.map(item => (
+          <Typography variant='body2' key={item.ability.name} color='textSecondary' component='p'>
+            {item.ability.name}
+          </Typography>
+        ))}
       </CardContent>
     </Card>
   );
