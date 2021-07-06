@@ -1,7 +1,7 @@
 import { TextField, Button } from "@material-ui/core";
 import useStyles from './style';
 
-function SearchItem({searchPokemon, setSearchPokemon, handleRequestToAPI}) {
+function SearchItem({searchPokemon, setSearchPokemon, handleFindPokemon}) {
     const classes = useStyles();
 
     return (
@@ -16,7 +16,7 @@ function SearchItem({searchPokemon, setSearchPokemon, handleRequestToAPI}) {
                 className={classes.button}
                 variant="contained"
                 color="secondary"
-                onClick={handleRequestToAPI}>
+                onClick={handleFindPokemon}>
                 Só dalhe
             </Button>
         </div>
